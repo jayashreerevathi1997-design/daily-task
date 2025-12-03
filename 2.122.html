@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello World Example</title>
+</head>
+<body>
+  <!-- Target element -->
+  <div id="message"></div>
+
+  <script>
+   function greet() {
+      // Find the element by its ID and set its text
+      document.getElementById("message").textContent = "Hello, World!";
+    }
+
+    // Call the function
+    greet();
+  </script>
+  <section id="cube-demo">
+    <h1>Cube Function Demo</h1>
+    <label for="cube-input">Enter a number:</label>
+    <input type="number" id="cube-input" placeholder="e.g. 3">
+    <button onclick="showCube()">Find Cube</button>
+    <p id="cube-result"></p>
+  </section>
+
+  <script>
+    // Function to calculate cube
+    function cube(num) {
+      return num * num * num;
+    }
+
+    // Function to show cube in document
+    function showCube() {
+      const value = document.getElementById("cube-input").value;
+      const result = cube(value);
+      document.getElementById("cube-result").textContent =
+        "Cube of " + value + " is " + result;
+    }
+  </script>
+<section id="even-odd-demo">
+    <h1>Even or Odd Checker</h1>
+    <label for="num-input">Enter a number:</label>
+    <input type="number" id="num-input" placeholder="e.g. 7">
+    <button onclick="checkEvenOdd()">Check</button>
+    <p id="result"></p>
+  </section>
+
+  <script>
+    // Function to check even or odd
+    function checkEvenOdd() {
+      const value = document.getElementById("num-input").value;
+      let message;
+
+      if (value % 2 === 0) {
+        message = value + " is Even";
+      } else {
+        message = value + " is Odd";
+      }
+
+      // Display result in document
+      document.getElementById("result").textContent = message;
+    }
+  </script>
+ <section id="factorial-demo">
+    <h1>Factorial Finder</h1>
+    <label for="fact-input">Enter a number:</label>
+    <input type="number" id="fact-input" placeholder="e.g. 5">
+    <button onclick="showFactorial()">Find Factorial</button>
+    <p id="fact-result"></p>
+  </section>
+
+  <script>
+    // Function to calculate factorial
+    function factorial(n) {
+      if (n < 0) return "Factorial not defined for negative numbers";
+      let result = 1;
+      for (let i = 1; i <= n; i++) {
+        result *= i;
+      }
+      return result;
+    }
+
+    // Function to show factorial in document
+    function showFactorial() {
+      const value = document.getElementById("fact-input").value;
+      const result = factorial(value);
+      document.getElementById("fact-result").textContent =
+        "Factorial of " + value + " is " + result;
+    }
+  </script>
+<section id="sum-demo">
+    <h1>Sum of Two Numbers</h1>
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1" placeholder="e.g. 5">
+    <br><br>
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2" placeholder="e.g. 7">
+    <br><br>
+    <button onclick="showSum()">Find Sum</button>
+    <p id="sum-result"></p>
+  </section>
+
+  <script>
+    // Function to calculate sum
+    function sum(a, b) {
+      return a + b;
+    }
+
+    // Function to show sum in document
+    function showSum() {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const result = sum(n1, n2);
+      document.getElementById("sum-result").textContent =
+        "Sum of " + n1 + " and " + n2 + " is " + result;
+    }
+  </script>
+  <section id="largest-demo">
+    <h1>Largest of Three Numbers</h1>
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1" placeholder="e.g. 12">
+    <br><br>
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2" placeholder="e.g. 25">
+    <br><br>
+    <label for="num3">Enter third number:</label>
+    <input type="number" id="num3" placeholder="e.g. 7">
+    <br><br>
+    <button onclick="showLargest()">Find Largest</button>
+    <p id="largest-result"></p>
+  </section>
+
+  <script>
+    // Function to return largest of three numbers
+    function largestOfThree(a, b, c) {
+      if (a >= b && a >= c) {
+        return a;
+      } else if (b >= a && b >= c) {
+        return b;
+      } else {
+        return c;
+      }
+    }
+
+ // Function to show result in document
+    function showLargest() {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const n3 = parseFloat(document.getElementById("num3").value);
+
+      const result = largestOfThree(n1, n2, n3);
+      document.getElementById("largest-result").textContent =
+        "Largest among " + n1 + ", " + n2 + ", and " + n3 + " is " + result;
+    }
+  </script>
+<section id="palindrome-demo">
+    <h1>Palindrome Checker</h1>
+    <label for="pal-input">Enter a word or phrase:</label>
+    <input type="text" id="pal-input" placeholder="e.g. madam">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="pal-result"></p>
+  </section>
+
+  <script>
+    // Function to check if a string is a palindrome
+    function isPalindrome(str) {
+      // Normalize: remove spaces, punctuation, and make lowercase
+      const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+      const reversed = cleaned.split("").reverse().join("");
+      return cleaned === reversed;
+    }
+
+    // Function to show result in document
+    function checkPalindrome() {
+      const value = document.getElementById("pal-input").value;
+      const result = isPalindrome(value);
+      document.getElementById("pal-result").textContent =
+        result
+          ? `"${value}" is a Palindrome ✅`
+          : `"${value}" is NOT a Palindrome ❌`;
+    }
+  </script>
+<section id="temp-converter">
+    <h1>Celsius to Fahrenheit Converter</h1>
+    <label for="celsius-input">Enter temperature in Celsius:</label>
+    <input type="number" id="celsius-input" placeholder="e.g. 25">
+    <button onclick="convertTemp()">Convert</button>
+    <p id="fahrenheit-result"></p>
+  </section>
+
+  <script>
+    // Function to convert Celsius to Fahrenheit
+    function celsiusToFahrenheit(celsius) {
+      return (celsius * 9/5) + 32;
+    }
+
+    // Function to show result in document
+    function convertTemp() {
+      const celsius = parseFloat(document.getElementById("celsius-input").value);
+      const fahrenheit = celsiusToFahrenheit(celsius);
+      document.getElementById("fahrenheit-result").textContent =
+        celsius + "°C = " + fahrenheit + "°F";
+    }
+  </script>
+ <section id="si-demo">
+    <h1>Simple Interest Calculator</h1>
+    <label for="principal">Principal Amount:</label>
+    <input type="number" id="principal" placeholder="e.g. 1000">
+    <br><br>
+    <label for="rate">Rate of Interest (% per year):</label>
+    <input type="number" id="rate" placeholder="e.g. 5">
+    <br><br>
+    <label for="time">Time (in years):</label>
+    <input type="number" id="time" placeholder="e.g. 2">
+    <br><br>
+    <button onclick="showSimpleInterest()">Calculate</button>
+    <p id="si-result"></p>
+  </section>
+
+  <script>
+    // Function to calculate Simple Interest
+    function simpleInterest(principal, rate, time) {
+      return (principal * rate * time) / 100;
+    }
+
+    // Function to show result in document
+    function showSimpleInterest() {
+      const p = parseFloat(document.getElementById("principal").value);
+      const r = parseFloat(document.getElementById("rate").value);
+      const t = parseFloat(document.getElementById("time").value);
+
+      const si = simpleInterest(p, r, t);
+      document.getElementById("si-result").textContent =
+        "Simple Interest = " + si;
+    }
+  </script>
+ <section id="reverse-array-demo">
+    <h1>Reverse Array</h1>
+    <label for="array-input">Enter values (comma separated):</label>
+    <input type="text" id="array-input" placeholder="e.g. 1,2,3,4,5">
+    <button onclick="showReversedArray()">Reverse</button>
+    <p id="array-result"></p>
+  </section>
+
+  <script>
+    // Function to reverse an array
+    function reverseArray(arr) {
+      return arr.reverse();
+    }
+
+    // Function to show result in document
+    function showReversedArray() {
+      const input = document.getElementById("array-input").value;
+      // Convert string into array by splitting at commas
+      const arr = input.split(",");
+      const reversed = reverseArray(arr);
+      document.getElementById("array-result").textContent =
+        "Reversed Array: " + reversed.join(", ");
+    }
+  </script>
+ <section id="vowel-counter-demo">
+    <h1>Vowel Counter</h1>
+    <label for="vowel-input">Enter a string:</label>
+    <input type="text" id="vowel-input" placeholder="e.g. Hello World">
+    <button onclick="countVowels()">Count Vowels</button>
+    <p id="vowel-result"></p>
+  </section>
+
+  <script>
+    // Function to count vowels in a string
+    function getVowelCount(str) {
+      const vowels = "aeiouAEIOU";
+      let count = 0;
+      for (let char of str) {
+        if (vowels.includes(char)) {
+          count++;
+        }
+      }
+      return count;
+    }
+
+    // Function to show result in document
+    function countVowels() {
+      const value = document.getElementById("vowel-input").value;
+      const result = getVowelCount(value);
+      document.getElementById("vowel-result").textContent =
+        "Number of vowels in \"" + value + "\" is " + result;
+    }
+  </script>
+<section id="double-array-demo">
+    <h1>Double Each Number in Array</h1>
+    <label for="double-input">Enter numbers (comma separated):</label>
+    <input type="text" id="double-input" placeholder="e.g. 1,2,3,4,5">
+    <button onclick="showDoubledArray()">Double</button>
+    <p id="double-result"></p>
+  </section>
+
+  <script>
+    // Arrow function to double each number in an array
+    const doubleArray = (arr) => arr.map(num => num * 2);
+
+    // Function to show result in document
+    function showDoubledArray() {
+      const input = document.getElementById("double-input").value;
+      const arr = input.split(",").map(Number); // Convert string to array of numbers
+      const doubled = doubleArray(arr);
+      document.getElementById("double-result").textContent =
+        "Doubled Array: " + doubled.join(", ");
+    }
+  </script>
+<section id="callback-demo">
+    <h1>Callback Function Demo</h1>
+    <button onclick="runCallback()">Run Callback</button>
+    <p id="callback-result"></p>
+  </section>
+
+  <script>
+    // Function that takes a callback and calls it
+    function doSomething(callback) {
+      callback();
+    }
+
+    // Example callback function
+    function myCallback() {
+      document.getElementById("callback-result").textContent =
+        "Callback function executed!";
+    }
+
+    // Function to trigger the demo
+    function runCallback() {
+      doSomething(myCallback);
+    }
+  </script>
+ <section id="max-three-demo">
+    <h1>Maximum of Three Numbers</h1>
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1" placeholder="e.g. 12">
+    <br><br>
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2" placeholder="e.g. 25">
+    <br><br>
+    <label for="num3">Enter third number:</label>
+    <input type="number" id="num3" placeholder="e.g. 7">
+    <br><br>
+    <button onclick="showMax()">Find Maximum</button>
+    <p id="max-result"></p>
+  </section>
+
+  <script>
+    // Function to find maximum of three numbers
+    function maxOfThree(a, b, c) {
+      if (a >= b && a >= c) {
+        return a;
+      } else if (b >= a && b >= c) {
+        return b;
+      } else {
+        return c;
+      }
+    }
+
+// Function to show result in document
+    function showMax() {
+      const n1 = parseFloat(document.getElementById("num1").value);
+      const n2 = parseFloat(document.getElementById("num2").value);
+      const n3 = parseFloat(document.getElementById("num3").value);
+
+      const result = maxOfThree(n1, n2, n3);
+      document.getElementById("max-result").textContent =
+        "Maximum among " + n1 + ", " + n2 + ", and " + n3 + " is " + result;
+    }
+  </script>
+<section id="palindrome-demo">
+    <h1>Palindrome Checker</h1>
+    <label for="pal-input">Enter a word or phrase:</label>
+    <input type="text" id="pal-input" placeholder="e.g. madam">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="pal-result"></p>
+  </section>
+
+  <script>
+    // Function to check if a string is a palindrome
+    function isPalindrome(str) {
+      // Normalize: remove spaces, punctuation, and make lowercase
+      const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+      const reversed = cleaned.split("").reverse().join("");
+      return cleaned === reversed;
+    }
+
+    // Function to show result in document
+    function checkPalindrome() {
+      const value = document.getElementById("pal-input").value;
+      const result = isPalindrome(value);
+      document.getElementById("pal-result").textContent =
+        result
+          ? `"${value}" is a Palindrome ✅`
+          : `"${value}" is NOT a Palindrome ❌`;
+    }
+  </script>
+    <section id="circle-area-demo">
+    <h1>Area of a Circle</h1>
+    <label for="radius-input">Enter radius:</label>
+    <input type="number" id="radius-input" placeholder="e.g. 5">
+    <button onclick="showArea()">Calculate Area</button>
+    <p id="area-result"></p>
+  </section>
+
+  <script>
+    // Function to calculate area of a circle
+    function areaOfCircle(radius) {
+      return Math.PI * radius * radius;
+    }
+
+    // Function to show result in document
+    function showArea() {
+      const r = parseFloat(document.getElementById("radius-input").value);
+      const area = areaOfCircle(r);
+      document.getElementById("area-result").textContent =
+        "Area of circle with radius " + r + " is " + area.toFixed(2);
+    }
+  </script>
+   <section id="capitalize-demo">
+    <h1>Capitalize First Letter of Each Word</h1>
+    <label for="sentence-input">Enter a sentence:</label>
+    <input type="text" id="sentence-input" placeholder="e.g. hello world from jayashree">
+    <button onclick="showCapitalized()">Capitalize</button>
+    <p id="capitalize-result"></p>
+  </section>
+
+  <script>
+    // Function to capitalize first letter of each word
+    function capitalizeWords(sentence) {
+      return sentence
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+
+    // Function to show result in document
+    function showCapitalized() {
+      const input = document.getElementById("sentence-input").value;
+      const result = capitalizeWords(input);
+      document.getElementById("capitalize-result").textContent =
+        "Capitalized Sentence: " + result;
+    }
+  </script>
+  <section id="reverse-string-demo">
+    <h1>Reverse a String</h1>
+    <label for="string-input">Enter a string:</label>
+    <input type="text" id="string-input" placeholder="e.g. Jayashree">
+    <button onclick="showReversedString()">Reverse</button>
+    <p id="string-result"></p>
+  </section>
+
+  <script>
+    // Function to reverse a string
+    function reverseString(str) {
+      return str.split("").reverse().join("");
+    }
+
+    // Function to show result in document
+    function showReversedString() {
+      const input = document.getElementById("string-input").value;
+      const result = reverseString(input);
+      document.getElementById("string-result").textContent =
+        "Reversed String: " + result;
+    }
+  </script>
+
+<section id="vc-counter-demo">
+    <h1>Vowel & Consonant Counter</h1>
+    <label for="vc-input">Enter a string:</label>
+    <input type="text" id="vc-input" placeholder="e.g. Hello World">
+    <button onclick="countVowelsConsonants()">Count</button>
+    <p id="vc-result"></p>
+  </section>
+
+  <script>
+    // Function to count vowels and consonants
+    function getCounts(str) {
+      const vowels = "aeiouAEIOU";
+      let vowelCount = 0;
+      let consonantCount = 0;
+
+      for (let char of str) {
+        if (/[a-zA-Z]/.test(char)) { // only letters
+          if (vowels.includes(char)) {
+            vowelCount++;
+          } else {
+            consonantCount++;
+          }
+        }
+      }
+      return { vowelCount, consonantCount };
+    }
+// Function to show result in document
+    function countVowelsConsonants() {
+      const value = document.getElementById("vc-input").value;
+      const { vowelCount, consonantCount } = getCounts(value);
+      document.getElementById("vc-result").textContent =
+        `"${value}" has ${vowelCount} vowels and ${consonantCount} consonants.`;
+    }
+  </script>
+ <section id="prime-checker-demo">
+    <h1>Prime Number Checker</h1>
+    <label for="prime-input">Enter a number:</label>
+    <input type="number" id="prime-input" placeholder="e.g. 17">
+    <button onclick="checkPrime()">Check</button>
+    <p id="prime-result"></p>
+  </section>
+
+  <script>
+    // Function to check if a number is prime
+    function isPrime(num) {
+      if (num <= 1) return false; // 0 and 1 are not prime
+      if (num === 2) return true; // 2 is prime
+      if (num % 2 === 0) return false; // even numbers > 2 are not prime
+
+      // check divisibility up to sqrt(num)
+      for (let i = 3; i <= Math.sqrt(num); i += 2) {
+        if (num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    // Function to show result in document
+    function checkPrime() {
+      const value = parseInt(document.getElementById("prime-input").value);
+      const result = isPrime(value);
+      document.getElementById("prime-result").textContent =
+        result
+          ? value + " is a Prime Number ✅"
+          : value + " is NOT a Prime Number ❌";
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
